@@ -54,4 +54,4 @@ export default function CheckoutForm({ amount, type, recipeId, onClose }) {
       </div>
     </form>
   );
-}
+}// checkout
