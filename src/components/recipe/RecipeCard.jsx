@@ -30,3 +30,4 @@ export default function RecipeCard({ recipe }) {
     </Link>
   );
 }
+// card
