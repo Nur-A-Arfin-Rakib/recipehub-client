@@ -28,7 +28,7 @@ export default function UserDashboard() {
     <div>
       <div className="mb-8 flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Welcome back, {user?.name?.split(' ')[0]}! 👋</h1>
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Welcome back, {user?.name?.split(' ')[0]}! 👋🍳</h1>
           <p className="text-gray-500 mt-1">Here's what's happening with your recipes</p>
         </div>
         {user?.isPremium && <span className="flex items-center gap-2 bg-amber-100 text-amber-700 px-4 py-2 rounded-full text-sm font-semibold">👑 Premium Member</span>}
