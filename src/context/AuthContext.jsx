@@ -11,6 +11,10 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+    }
     api.get('/api/auth/me')
       .then(res => setUser(res.data.user))
       .catch(() => setUser(null))
@@ -19,12 +23,16 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (name, email, password, image) => {
     const res = await api.post('/api/auth/register', { name, email, password, image });
+    localStorage.setItem('token', res.data.token);
+    api.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`;
     setUser(res.data.user);
     return res.data.user;
   };
 
   const login = async (email, password) => {
     const res = await api.post('/api/auth/login', { email, password });
+    localStorage.setItem('token', res.data.token);
+    api.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`;
     setUser(res.data.user);
     return res.data.user;
   };
@@ -33,6 +41,8 @@ export const AuthProvider = ({ children }) => {
     const result = await signInWithPopup(auth, googleProvider);
     const { displayName, email, photoURL } = result.user;
     const res = await api.post('/api/auth/google', { name: displayName, email, image: photoURL });
+    localStorage.setItem('token', res.data.token);
+    api.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`;
     setUser(res.data.user);
     return res.data.user;
   };
@@ -40,6 +50,8 @@ export const AuthProvider = ({ children }) => {
   const logout = async () => {
     await api.post('/api/auth/logout');
     await signOut(auth);
+    localStorage.removeItem('token');
+    delete api.defaults.headers.common['Authorization'];
     setUser(null);
   };
 
@@ -51,4 +63,3 @@ export const AuthProvider = ({ children }) => {
 };
 
 export const useAuth = () => useContext(AuthContext);
-// auth
