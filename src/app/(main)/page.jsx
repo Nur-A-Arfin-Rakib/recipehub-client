@@ -33,7 +33,7 @@ export default function Home() {
               <Link href="/register" className="btn-outline text-base px-6 py-3">Join for free</Link>
             </div>
             <div className="flex gap-8 mt-10">
-              {[['12k+', 'Recipes shared'], ['4.8k', 'Active chefs'], ['98', 'Cuisines']].map(([num, label]) => (
+              {[['12k+', 'Recipes shared'], ['4.8k', 'Active chefs'], ['100+', 'Cuisines']].map(([num, label]) => (
                 <div key={label}>
                   <div className="text-2xl font-bold text-gray-900 dark:text-white">{num}</div>
                   <div className="text-sm text-gray-500">{label}</div>
