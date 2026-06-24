@@ -38,7 +38,7 @@ export default function Navbar() {
           <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white">
             🍳
           </div>
-          RecipeHub
+          RecipeHub 🍳
         </Link>
 
         <nav className="hidden md:flex items-center gap-1">
