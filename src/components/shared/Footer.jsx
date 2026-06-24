@@ -39,7 +39,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="border-t border-gray-800 pt-6 flex flex-col sm:flex-row justify-between items-center gap-2 text-sm">
-          <p>© 2026 RecipeHub. All rights reserved.</p>
+          <p>© 2026 RecipeHub. All rights reserved. 🍳</p>
           <p>Made with ❤️ for food lovers</p>
         </div>
       </div>
