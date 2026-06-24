@@ -9,3 +9,4 @@ export const uploadImage = async (file) => {
   if (!data.success) throw new Error('Image upload failed');
   return data.data.url;
 };
+// upload
