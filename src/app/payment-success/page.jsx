@@ -32,4 +32,4 @@ export default function PaymentSuccess() {
       <PaymentSuccessContent />
     </Suspense>
   );
-}
+}// success
